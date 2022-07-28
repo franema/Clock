@@ -15,7 +15,10 @@ function getSeconds(now) {
     const seconds = now.getSeconds()
     const degree = (seconds * 6) + 90
     if (seconds === 0) {
-        $secondsHand.style.transition = "none"
+        $secondsHand.id = "no-transition"
+        setTimeout(function() {
+            $secondsHand.id = ""
+        }, 500)
     }
     $secondsHand.style.transform = `rotate(${degree}deg)`
 }
@@ -24,7 +27,10 @@ function getMinutes(now) {
     const minutes = now.getMinutes()
     const degree = (minutes * 6) + 90
     if (minutes === 0) {
-        $minutesHand.style.transition = "none"
+        $minutesHand.id = "no-transition"
+        setTimeout(function() {
+            $minutesHand.id = ""
+        }, 500)
     }
     $minutesHand.style.transform = `rotate(${degree}deg)`
 }
